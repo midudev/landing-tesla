@@ -1,11 +1,12 @@
 ---
-import Section from "./Section.astro"
+import Section from "./Section.astro";
 ---
 
 <Section
   title="Model Y"
   subtitle="Concertar una prueba de conducción"
   color="black"
+  id="model-y"
 >
   <div slot="footer" class="gap-x-6 flex mx-auto">
     <a
@@ -24,8 +25,30 @@ import Section from "./Section.astro"
 
   <img
     slot="background"
-    src="/model-y.avif"
     alt="Model Y"
-    class="h-full w-full object-cover object-center"
+    class="h-full w-full object-cover object-center bg-image"
+    src="model-y.avif"
+    id="bg-image-modely"
   />
 </Section>
+
+<script>
+  function isEdge() {
+    if (
+      navigator.userAgent.indexOf("Edge") > -1 ||
+      navigator.userAgent.indexOf("Edg") > -1
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  var imageElement = document.querySelector("#bg-image-modely") as HTMLImageElement;
+
+  if (isEdge()) {
+    imageElement.src = "model-y.webp";
+  } else {
+    imageElement.src = "model-y.avif";
+  }
+</script>
