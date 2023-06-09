@@ -44,7 +44,7 @@ import Section from "./Section.astro";
     }
   }
 
-  var imageElement = document.querySelector("#bg-image-accessories") as HTMLImageElement;
+  let imageElement = document.querySelector("#bg-image-accessories") as HTMLImageElement; // TypeScript
 
   if (isEdge()) {
     imageElement.src = "accessories.webp";
