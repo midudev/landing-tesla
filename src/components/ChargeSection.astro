@@ -1,12 +1,13 @@
 ---
 import Section from "./Section.astro";
+const {title, subtitle, color, id, img} = Astro.props
 ---
 
 <Section
-  title="Model Y"
-  subtitle="Concertar una prueba de conducción"
-  color="black"
-  id="model-y"
+  title={title}
+  subtitle={subtitle}
+  color={color}
+  id={id}
 >
   <div slot="footer" class="gap-x-6 flex mx-auto">
     <a
@@ -25,14 +26,15 @@ import Section from "./Section.astro";
 
   <img
     slot="background"
-    alt="Model Y"
+    alt={title}
     class="h-full w-full object-cover object-center bg-image"
-    src="model-y.avif"
+    src={`${img}.avif`}
     id="bg-image-modely"
   />
 </Section>
 
 <script>
+  const { img } = Astro.props;
   function isEdge() {
     if (
       navigator.userAgent.indexOf("Edge") > -1 ||
@@ -47,8 +49,8 @@ import Section from "./Section.astro";
   var imageElement = document.querySelector("#bg-image-modely") as HTMLImageElement;
 
   if (isEdge()) {
-    imageElement.src = "model-y.webp";
+    imageElement.src = `${img}.webp`;
   } else {
-    imageElement.src = "model-y.avif";
+    imageElement.src = `${img}.avif"`;
   }
 </script>
