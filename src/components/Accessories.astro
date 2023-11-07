@@ -1,5 +1,5 @@
 ---
-import Section from "./Section.astro";
+import Section from "./Section.astro"
 ---
 
 <Section
@@ -39,17 +39,19 @@ import Section from "./Section.astro";
       navigator.userAgent.indexOf("Edge") > -1 ||
       navigator.userAgent.indexOf("Edg") > -1
     ) {
-      return true;
+      return true
     } else {
-      return false;
+      return false
     }
   }
 
-  var imageElement = document.querySelector("#bg-image-accessories") as HTMLImageElement;
+  let imageElement = document.querySelector(
+    "#bg-image-accessories"
+  ) as HTMLImageElement
 
   if (isEdge()) {
-    imageElement.src = "accessories.webp";
+    imageElement.src = "accessories.webp"
   } else {
-    imageElement.src = "accessories.avif";
+    imageElement.src = "accessories.avif"
   }
 </script>
