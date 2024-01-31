@@ -29,7 +29,24 @@ import Logo from "./Logo.astro"
     >
       <li class="hidden xl:block sm:hidden"><a href="#">Tienda</a></li>
       <li class="hidden xl:block sm:hidden"><a href="#">Cuenta</a></li>
-      <li><a href="#">Menú</a></li>
+      <li><a id="menu-btn" href="#">Menú</a></li>
+    </ul>
+  </nav>
+
+  <nav id="modal-menu" class=" hidden xl:hidden flex flex-col bg-white fixed top-0 left-0 right-0 bottom-0 ">
+    <button id="close-btn" class=" w-screen flex justify-end p-5">
+      <img  class="text-black h-6 " src="/close-icon.svg" alt="close image">
+    </button>
+      <ul
+      class="flex flex-col mt-4 [&>li>a]:transition-colors [&>li]:m-3  [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:duration-200 [&>li>a]:text-black [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-6 [&>li>a]:py-3 [&>li>a]:rounded-md [&>li>a]:w-full"
+      >
+        <li><a class="hover:bg-slate-100" href="#home"> Home <img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a> </li>
+        <li><a class="hover:bg-slate-100" href="#model-s">Model S<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+        <li><a class="hover:bg-slate-100" href="#model-3">Model 3<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+        <li><a class="hover:bg-slate-100" href="#model-x">Model X<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+        <li><a class="hover:bg-slate-100" href="#model-y">Model Y<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+        <li><a class="hover:bg-slate-100" href="#powerwall">Powerwall<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
+        <li><a class="hover:bg-slate-100" href="#accesorios">Carga<img class="h-5" alt="arrow icon" src="/arrow-icon.svg"></a></li>
     </ul>
   </nav>
 
@@ -46,6 +63,30 @@ import Logo from "./Logo.astro"
   >
   </div>
 </header>
+
+<script >
+  const menuBtn = document.getElementById('menu-btn');
+  const modalMenu = document.querySelector("#modal-menu")
+  const menuItems = modalMenu.querySelectorAll('li>a ');
+  const closeBtn = document.querySelector("#close-btn")
+  
+  function toggleDropdownMenu() {
+    modalMenu.classList.toggle('hidden');
+  }
+
+
+  menuBtn.addEventListener('click',toggleDropdownMenu)
+
+  closeBtn.addEventListener('click',toggleDropdownMenu)
+
+  menuItems.forEach(Item => {
+    Item.addEventListener('click',toggleDropdownMenu);
+});
+
+
+
+</script>
+
 
 <script>
   const listItem = document.querySelectorAll("#landing-header li")
